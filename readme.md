@@ -42,8 +42,8 @@ make TICKER=ETH-USD START_DATE=2018-01-01 END_DATE=2024-01-01
 This will run the Python script with the specified ticker and date range, then build the C++ project.
 
 ### Prerequisites
--
-- GCC or compatible C++23 compiler
+- Ubuntu 24.04.2
+- GCC or/ compatible C++23 compiler
 - Make
 - Python 3.12
 - yfinance 0.2.65

@@ -90,3 +90,4 @@ This project is licensed under the terms of the LICENSE file provided in the rep
 - Improve documentation and add usage examples
 - Optimize repedately used classes
 - Add new strategies
+- Implement a better way to choose best parameter sets

@@ -6,17 +6,16 @@ BacktestEngine is a C++ project designed for backtesting trading strategies usin
 
 - **Strategy Simulation:** Supports multiple trading strategies with modularity to add new ones easily.
 - **Data Handling:** Reads historical data from CSV files for backtesting. Historical data is being recieved by a Python script.
-- **Reporting:** Generates detailed performance reports for each strategy and parameter set.
+- **Reporting:** Generates detailed performance reports for best strategies and parameter sets (5 at most).
 - **Parameter Optimization:** Tests various parameter combinations to find the best-performing strategy.
-- **Extensible Architecture:** Easily add new strategies or calculators via the `include/`directory.
 
 ## Project Structure
 
 - `main/` — Main application source files.
 - `include/` — Header files for strategies, data handling, reporting, and utility classes.
-- `data/` — Contains historical data files.
+- `data/` — Contains downloaded historical data file.
 - `reports/` — Output directory for generated strategy performance reports.
-- `scripts/` — Python scripts for data preprocessing or analysis.
+- `scripts/` — Python script for data preprocessing.
 - `Makefile` — Build instructions for the project.
 - `LICENSE` — Project license information.
 
@@ -43,9 +42,11 @@ make TICKER=ETH-USD START_DATE=2018-01-01 END_DATE=2024-01-01
 This will run the Python script with the specified ticker and date range, then build the C++ project.
 
 ### Prerequisites
-
+-
 - GCC or compatible C++23 compiler
 - Make
+- Python 3.12
+- yfinance 0.2.65
 
 ### Build
 
@@ -54,8 +55,10 @@ To build the project, run:
 ```bash
 make
 ```
-
-Or use the provided VS Code build tasks for different GCC versions.
+Or run:
+```bash
+make TICKER=[tickername] START_DATE=[yyyy-mm-dd] END_DATE=[yyyy-mm-dd]
+```
 
 ### Run
 
@@ -67,18 +70,23 @@ After building, execute the main binary:
 
 ## Usage
 
-1. Place your historical data in the `data/` directory (e.g., `data.csv`).
-2. Configure strategies and parameters in the source code or via command-line options (if supported).
-3. Run the engine to generate reports in the `reports/` directory.
+1. Choose the ticker, start date and end date.
+2. Run the engine to generate reports in the `reports/` directory.
 
-## Adding Strategies
-
-To add a new strategy:
-
-1. Create a new header and implementation file in `include/`.
-2. Implement the required interfaces (see existing strategies for examples).
-3. Register the strategy in the main application.
 
 ## License
 
 This project is licensed under the terms of the LICENSE file provided in the repository.
+
+## Future Plans
+
+- Add discreteness for asset classes such as stocks
+- Implement more advanced trading strategies and risk management modules
+- Implement more metrics to measure performance and risk (CAGR, Alpha, Benchmark-relative Return, Standart Deviation, Maximum Drawdown, Sharpe Ratio)
+- Add support for shorting equites (selling equity on loan)
+- Add support for brokerage commissions
+- Add Support for leveraged trades and interest rates
+- Enhance reporting with more metrics and interactive formats
+- Improve documentation and add usage examples
+- Optimize repedately used classes
+- Add new strategies

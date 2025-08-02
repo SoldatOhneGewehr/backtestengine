@@ -9,6 +9,13 @@ BacktestEngine is a C++ project designed for backtesting trading strategies usin
 - **Reporting:** Generates detailed performance reports for best strategies and parameter sets (5 at most).
 - **Parameter Optimization:** Tests various parameter combinations to find the best-performing strategy.
 
+### Prerequisites
+- Ubuntu 24.04.2
+- GCC or/ compatible C++23 compiler
+- Make
+- Python 3.12
+- yfinance 0.2.65
+
 ## Project Structure
 
 - `main/` — Main application source files.
@@ -40,13 +47,6 @@ make TICKER=ETH-USD START_DATE=2018-01-01 END_DATE=2024-01-01
 ```
 
 This will run the Python script with the specified ticker and date range, then build the C++ project.
-
-### Prerequisites
-- Ubuntu 24.04.2
-- GCC or/ compatible C++23 compiler
-- Make
-- Python 3.12
-- yfinance 0.2.65
 
 ### Build
 
